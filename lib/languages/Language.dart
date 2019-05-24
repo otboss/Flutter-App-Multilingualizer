@@ -122,7 +122,7 @@ Future<String> _getLanguageStringFromFile(BuildContext context, LanguageClassAtt
         return languageLibrary.toJSON()[attribute];
     }
     String systemLanguage = _getSystemLanguage(context);
-    return json.decode(await _getLanguageFile(systemLanguage))[attribute];
+    return json.decode(await _getLanguageFile(systemLanguage))[attribute.toString()];
   } catch (err) {
     print(err);
     return null;
