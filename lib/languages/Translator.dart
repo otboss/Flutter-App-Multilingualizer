@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 
 bool _isLanguageLibraryTranslated = false;
-String _defaultLanguage = _SupportedLanguages.en.toString();
+final String _defaultLanguage = _SupportedLanguages.en.toString();
 
 ///Place all references to String on the user interface here
 enum LanguageLibraryAttributes{
