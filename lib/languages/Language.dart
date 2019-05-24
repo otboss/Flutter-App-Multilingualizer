@@ -15,7 +15,7 @@ class Language{
     @required this.chatScreenTitle
   });
 
-  String defaultLanguage = SupportedLanguages.en_US.toString();
+  String defaultLanguage = SupportedLanguages.en.toString();
 
   FutureBuilder<String> getTranslation(BuildContext context, LanguageClassAttributes attribute){
     return FutureBuilder<String>(
@@ -46,12 +46,40 @@ enum LanguageClassAttributes{
   chatScreenTitle
 }
 
+enum SupportedLanguages{
+  al,
+  bg,
+  cs,
+  de,
+  el,
+  en,
+  es,
+  fr,
+  hi,
+  hu,
+  it,
+  jp,
+  ko,
+  nl,
+  pl,
+  ru,
+  sr,
+  sv,
+  ta,
+  th,
+  vi,
+  zh_CN,
+  zh_TW
+}
+
 Locale _getLocality(BuildContext context){
   return Localizations.localeOf(context);
 }
 
 String _getSystemLanguage(BuildContext context){
-  return Localizations.localeOf(context).toString();
+  if(Localizations.localeOf(context).toString() == "zh_CN" || Localizations.localeOf(context).toString() == "zh_TW")
+    return Localizations.localeOf(context).toString(); 
+  return Localizations.localeOf(context).toString().substring(0, 2);
 }
 
 Future<String> _getLanguageFile(String languageFileName) async {
@@ -92,4 +120,3 @@ Future<String> _getLanguageStringFromFile(BuildContext context, LanguageClassAtt
     return null;    
   }
 }
-
